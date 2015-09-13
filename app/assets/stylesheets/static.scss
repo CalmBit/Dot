@@ -1,0 +1,48 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+{
+	font-family: sans-serif;
+}
+
+.main_container
+{
+	text-align:center;
+}
+
+nav
+{
+	background-color:#333;
+	width:80%;
+	height:5%;
+	padding-top:0.75%;
+	padding-bottom:0.75%;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+	ul
+	{
+		color:#fff;
+		list-style:none;
+		li
+		{
+			display:inline;
+			a
+			{
+				color:white;
+				text-decoration:none;
+				background-color:#333;
+				transition:0.25s;
+				padding:5px;
+				border-radius:10px;				
+			}
+			a:hover
+			{
+				background-color:#888;
+				transition:0.25s;
+			}
+		}
+	}
+}
