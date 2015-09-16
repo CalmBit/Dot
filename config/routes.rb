@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+       get 'user/validate' => 'users#validate'
 	get 'user/register' => 'users#new'
 	get 'user/:id' => 'users#show'
 

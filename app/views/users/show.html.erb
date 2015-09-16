@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div style="margin-right:5%;width:30%">
+<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
+</div>
+<div style="display:flex; flex-direction:column;width:30%">
 <p>
   <strong>Username:</strong>
-  <%= @user.username %>
+ <%=@user.username %>
 </p>
 
 <p>
@@ -11,24 +15,8 @@
 </p>
 
 <p>
-  <strong>Passhash:</strong>
-  <%= @user.passhash %>
-</p>
-
-<p>
   <strong>Bio:</strong>
   <%= @user.bio %>
 </p>
 
-<p>
-  <strong>Passsalt:</strong>
-  <%= @user.passsalt %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

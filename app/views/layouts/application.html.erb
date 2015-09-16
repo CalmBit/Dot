@@ -7,14 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/user/register">Register</a></li>
-</nav>
-<div class="main_container">
+<header>
+	<nav>
+		<ul>
+			<li><a href="/" style="font-size:24px;margin-right:10px;">Dot</a></li>
+			<li><a href="/user/register">Register <i class="fa fa-pencil"></i></a></li>
+		</ul>
+	</nav>
+	<% flash.each do |key, value| %>
+       		 <div class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %>
+</header>
+<main>
 <%= yield %>
-</div>
+</main>
+<footer>
+<br>
+<p>Punkt Creative LLC &copy; 2015. All Rights Reserved. </p>
+<a href="#" class="social_media"><i class="fa fa-twitter-square fa-2x"></i></a>
+<a href="#" class="social_media"><i class="fa fa-facebook-square fa-2x"></i></a>
+<a href="#" class="social_media"><i class="fa fa-reddit-square fa-2x"></i></a>
+<a href="#" class="social_media"><i class="fa fa-github-square fa-2x"></i></a>
+<a href="#" class="social_media"><i class="fa fa-instagram fa-2x"></i></a>
+</footer>
 </body>
 </html>
 

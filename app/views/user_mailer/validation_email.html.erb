@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<style>
+		body
+		{
+			width:50%;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		.header
+		{
+			font-size:24px;
+		}
+		header
+		{
+			background-color: #aaa;
+			color:#fff;
+			box-shadow: #000 0px 0px 5px;
+			text-align:center;
+		}
+		.brand
+		{
+			font-size:48px;
+		}
+		.subtitle
+		{
+			font-size:24px;
+		}
+		footer
+		{
+			margin-left:10%;
+			color:#555;
+			line-height: 10px;
+		}
+		.signature
+		{
+			margin-left:10%;
+			font-family: 'Pacifico', cursive;
+			color:#000;
+			font-size:24px;
+		}
+	</style>
+</head>
+ <body>
+	 <header>
+		<span class="brand">Dot</span>
+		<br>
+		<span class="subtitle">Media For Everyone</span>
+	</header>
+	<main>
+	<p class="header">Welcome to Dot, <%=@user.username%>!</p>
+	<p> We'd love to get you started with everything - but first, you'll need to validate your email! </p>
+	<p> Click <a href="http://dot.calmbit.com/user/validate?code=<%=@user.validation_code%>&amp;email=<%=@user.email%>">here</a> to validate your email.</p>
+	</main>
+	<footer>
+	<p>Much Love,</p>
+	<p class="signature"> The Dot Team </p>
+	</footer>
+	</div>
+ </body>
+</html>
