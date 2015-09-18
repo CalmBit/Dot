@@ -5,13 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <header>
 	<nav>
 		<ul>
-			<li><a href="/" style="font-size:24px;margin-right:10px;">Dot</a></li>
-			<li><a href="/user/register">Register <i class="fa fa-pencil"></i></a></li>
+			<li><a href="/" style="font-size:24px;margin-right:10px;font-family: 'Pacifico', cursive;">Dot</a></li>
+      <% if not @current_user %>
+			<li><a href="/user/register"><i class="fa fa-user-plus"></i> Register</a></li>
+                      <li><a href="/user/login"><i class="fa fa-sign-in"></i> Log In</a></li>
+      <%else%>
+                      <li><a href="/user/<%=@current_user.id%>"><i class="fa fa-user"></i> <%=@current_user.username%></a></li>
+                      <li><a href="/user/logout"><i  class="fa fa-sign-out"></i> Log Out</a></li>
+      <%end%>
 		</ul>
 	</nav>
 	<% flash.each do |key, value| %>

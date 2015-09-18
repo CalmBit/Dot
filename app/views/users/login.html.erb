@@ -1,0 +1,8 @@
+<div>
+<p class="welcome">Log In</p>
+<%= form_tag(action: 'login_attempt') do%>
+	<div class="field"><%= text_field_tag(:username) %></div>
+	<div class="field"><%= password_field_tag(:login_password) %></div>
+	<div class="field"><%= submit_tag("Log In") %></div>
+<%end%>
+</div>

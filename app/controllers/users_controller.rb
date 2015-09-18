@@ -84,6 +84,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+
+  end
+
+  def logout
+    if @current_user
+      session[:current_user_id] = nil
+      flash[:success] = "Logged out!"
+    else
+      flash[:error] = "You're not logged in!"
+    end
+      redirect_to url_for(:controller => :static, :action => :home)
+  end
+
+  def login_attempt
+    @user = User.find_by(username: params[:username])
+    respond_to do |format|
+      if @user == nil or not @user.password_valid?(params[:login_password])
+        flash[:error] = "Username or password incorrect!"
+        format.html {redirect_to url_for(:controler => :users, :action => :login)}
+      else
+        session[:current_user_id] = @user.id
+        flash[:success] = "Login sucessful!"
+        format.html {redirect_to url_for(:controller => :static, :action => :home)}
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

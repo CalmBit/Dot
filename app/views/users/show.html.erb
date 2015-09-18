@@ -1,22 +1,21 @@
 <p id="notice"><%= notice %></p>
+<div style="text-align:center;">
+	<p class="username-larger"><%=@user.username %></p>
+	<div class="profile-card">
+		<div>
+			<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
+		</div>
+		<div  classstyle="display:flex; flex-direction:column;">
+			<p>
+		  		<strong>Email:</strong>
+		  		<%= @user.email %>
+			</p>
 
-<div style="margin-right:5%;width:30%">
-<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
-</div>
-<div style="display:flex; flex-direction:column;width:30%">
-<p>
-  <strong>Username:</strong>
- <%=@user.username %>
-</p>
+			<p>
+		  		<strong>Bio:</strong>
+		  		<%= @user.bio %>
+			</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
+		</div>
+	</div>
 </div>

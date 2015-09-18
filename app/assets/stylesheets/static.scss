@@ -23,6 +23,47 @@ main
 	font-size:24px;
 }
 
+.logo
+{
+	font-size:128px;
+	font-family: 'Pacifico', cursive;
+}
+
+.logo_sub
+{
+	font-size:48px;
+	font-family: 'Pacifico', cursive;
+	margin-bottom: 80px;
+}
+
+.username-larger
+{
+	font-size:32px;
+}
+
+.button-get-started
+{
+	@extend .accent-one;	
+	font-size:32px;
+	font-family: 'Josefin Sans', sans-serif;
+	margin-right:auto;
+	margin-left:auto;
+	border-radius:10px;
+	box-shadow: #94D081 0px 0px 10px;
+	transition:0.25s;
+	padding: 10px 10px 10px 10px;
+	color:#000;
+	text-decoration: none;
+}
+
+.button-get-started:hover
+{
+	@extend .accent-one;
+	box-shadow: #94D081 0px 0px 20px;
+	transition: 0.25s;
+	color:#000;
+}
+
 footer
 {
 	height:100px;
@@ -62,12 +103,12 @@ a.social-media:hover i
 }
 .accent-one
 {
-	color:#A0F185;
+	background-color:#A0F185;
 }
 
 .accent-two
 {
-	color:#9099FF;
+	background-color:#9099FF;
 }
 
 .alert-error
@@ -90,6 +131,7 @@ nav
 	padding-bottom:0.75%;
 	margin-left:auto;
 	margin-right:auto;
+	border-radius:10px;
 	ul
 	{
 		color:#fff;
@@ -97,7 +139,7 @@ nav
 		li
 		{
 			display:inline;
-			a
+			a, p
 			{
 				color:#fff;
 				text-decoration:none;
@@ -105,7 +147,10 @@ nav
 				transition:0.25s;
 				padding:5px;
 				border-radius:10px;	
-				font-weight:bold;			
+				font-weight:bold;	
+				display:inline;	
+				font-family: 'Josefin Sans', sans-serif;
+				font-size:16px;	
 			}
 			a:visited
 			{

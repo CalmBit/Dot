@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 		self.passhash = Digest::SHA256.hexdigest(pass+self.passsalt)
 	end
 
+	def  password_valid?(pass)
+		return self.passhash == Digest::SHA256.hexdigest(pass+self.passsalt)
+	end
+
 	def construct_validation
 		self.validated = false;
 		self.validation_code = "";

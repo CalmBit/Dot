@@ -35,6 +35,8 @@ gem 'thin'
 
 gem 'font-awesome-rails'
 
+gem 'rack-ssl-enforcer'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
