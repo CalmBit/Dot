@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         UserMailer.validation_email(@user).deliver_later
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to url_for(:controller => :users, :action => :needs_validation) }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -80,14 +80,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def needs_validation
+  end
+
   def login
 
   end
 
   def logout
     if @current_user
-      session[:current_user_id] = nil
-      flash[:success] = "Logged out!"
+      session[:current_user_id] = needs_validation
     else
       flash[:error] = "You're not logged in!"
     end
@@ -102,7 +104,6 @@ class UsersController < ApplicationController
         format.html {redirect_to url_for(:controler => :users, :action => :login)}
       else
         session[:current_user_id] = @user.id
-        flash[:success] = "Login sucessful!"
         format.html {redirect_to url_for(:controller => :static, :action => :home)}
       end
     end

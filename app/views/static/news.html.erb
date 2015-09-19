@@ -1,0 +1,8 @@
+<div style="text-align:center; ">
+<p class="logo_sub">News</p>
+<div class="news_container">
+<%5.times do |x|%>
+	<%= render partial: 'shared/news_item.html.erb', object: @newsItem %>
+<%end%>
+</div>
+</div>

@@ -1,5 +1,12 @@
+require 'forgery'
 class StaticController < ApplicationController
-	#before_action :authenticate, only: [:home]
 	def home
+	end
+	def news
+		@newsItem = {
+			:title => Forgery(:lorem_ipsum).title,
+			:desc => Forgery(:lorem_ipsum).words(20) << "...",
+			:date => Forgery(:date).date.strftime('%a, %Y-%m-%d @ %H:%M:%S')
+		}
 	end
 end

@@ -1,0 +1,12 @@
+<div style="text-align:center; ">
+	<%if not @current_user%>
+	<%= image_tag("dot_logo_alpha.png",  :width => 256, :height => 256)%>
+	<p class="logo_sub">Your favourite media - now.</p>
+	<a href="/user/register" class="button-get-started">Get Started</a>
+	<div style="display:flex;justify-content:center;">
+	</div>
+	<%else%>
+	<p class="logo_sub">Welcome, <%=@current_user.username%></p>
+	<p class="welcome">Here's what's been happening today: </p>
+	<%end%>
+</div>

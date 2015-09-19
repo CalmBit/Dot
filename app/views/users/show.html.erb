@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div style="text-align:center;">
 	<p class="username-larger"><%=@user.username %></p>
+	<%=raw(@user.get_user_title)%>
 	<div class="profile-card">
 		<div>
 			<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
