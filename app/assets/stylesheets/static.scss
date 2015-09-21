@@ -115,14 +115,14 @@ footer
 a.social_media
 {
 	color:#000;
-	background-color:#fff;
+	background-color:#FFF0C8;
 	transition: 0.25s;
 }
 
 a.social_media:hover
 {
 	color:#555;
-	background-color:#fff;
+	background-color:#FFF0C8;
 	transition: 0.25s;
 }
 
@@ -146,6 +146,18 @@ a.social_media:hover
 {
 	background-color: #98FD98;
    	border: solid #7EE07E 5px;
+}
+
+.alert-warning
+{
+	background-color: #FDFA98;
+   	border: solid #E0DD7E 5px;
+}
+
+.alert-announcement
+{
+	background-color: #98D8FD;
+   	border: solid #7EC5E0 5px;
 }
 
 .usertitle

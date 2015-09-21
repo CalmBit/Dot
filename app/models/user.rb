@@ -1,5 +1,6 @@
 require 'digest'
 class User < ActiveRecord::Base
+	 has_many :text_posts
 
 	def construct_password(pass)
 		self.passsalt = ""

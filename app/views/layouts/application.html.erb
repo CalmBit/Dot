@@ -20,13 +20,23 @@
       <%else%>
                       <li><a href="/user/<%=@current_user.id%>"><i class="fa fa-user"></i> <%=@current_user.username%></a></li>
                       <li><a href="/news"><i class="fa fa-newspaper-o"></i> News</a></li>
+                      <li><a href="/post/create"><i class = "fa fa-plus-circle"></i> New Post</a></li>
                       <li><a href="/user/logout"><i  class="fa fa-sign-out"></i> Log Out</a></li>
       <%end%>
 		</ul>
 	</nav>
-	<% flash.each do |key, value| %>
-       		 <div class="alert alert-<%= key %>"><%= value %></div>
-      	<% end %>
+        <% if flash[:error] %>
+          <div class="alert alert-error"><i class="fa fa-times-circle"></i> <%=flash[:error]%></div>
+        <%end%>
+        <% if flash[:warning] %>
+          <div class="alert alert-error"><i class="fa fa-times-circle"></i> <%=flash[:warning]%></div>
+        <%end%>
+        <% if flash[:success] %>
+          <div class="alert alert-error"><i class="fa fa-times-circle"></i> <%=flash[:success]%></div>
+        <%end%>
+        <% if flash[:announcement] %>
+          <div class="alert alert-announcement"><i class="fa fa-bullhorn"></i> <%=flash[:announcement]%></div>
+        <%end%>
 </header>
 <main>
 <%= yield %>
@@ -35,10 +45,9 @@
 <br>
 <p>Punkt Creative LLC &copy; 2015. All Rights Reserved. </p>
 <a href="https://twitter.com/PunktCreative  " class="social_media"><i class="fa fa-twitter-square fa-2x"></i></a>
-<a href="#" class="social_media"><i class="fa fa-facebook-square fa-2x"></i></a>
-<a href="#" class="social_media"><i class="fa fa-reddit-square fa-2x"></i></a>
+<a href="https://www.facebook.com/punktcreative" class="social_media"><i class="fa fa-facebook-square fa-2x"></i></a>
+<a href="https://www.reddit.com/r/punktcreative/" class="social_media"><i class="fa fa-reddit-square fa-2x"></i></a>
 <a href="https://github.com/punktcreative" class="social_media"><i class="fa fa-github-square fa-2x"></i></a>
-<a href="#" class="social_media"><i class="fa fa-instagram fa-2x"></i></a>
 <a href="mailto:punktcreative@gmail.com" class="social_media"><i class="fa fa-envelope-square fa-2x"></i></a>
 </footer>
 </body>

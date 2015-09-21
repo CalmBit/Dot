@@ -93,6 +93,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = "You're not logged in!"
     end
+      flash[:warning] = nil
       redirect_to url_for(:controller => :static, :action => :home)
   end
 

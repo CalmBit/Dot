@@ -1,0 +1,6 @@
+<div style="text-align:center; ">
+<%= form_tag("/post/make_new", method: "post") do %>
+	<%= select_tag :post_type, options_for_select([['Text', 1], ['Art', 2], ['Audio', 3], ['Video', 4]], 1) %>
+	<%= submit_tag "Post" %>
+<% end %>
+</div>
