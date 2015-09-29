@@ -18,7 +18,7 @@
 			<li><a href="/user/register"><i class="fa fa-user-plus"></i> Register</a></li>
                       <li><a href="/user/login"><i class="fa fa-sign-in"></i> Log In</a></li>
       <%else%>
-                      <li><a href="/user/<%=@current_user.id%>"><i class="fa fa-user"></i> <%=@current_user.username%></a></li>
+                      <li><a href="/me"><i class="fa fa-user"></i> <%=@current_user.username%></a></li>
                       <li><a href="/news"><i class="fa fa-newspaper-o"></i> News</a></li>
                       <li><a href="/post/create"><i class = "fa fa-plus-circle"></i> New Post</a></li>
                       <li><a href="/user/logout"><i  class="fa fa-sign-out"></i> Log Out</a></li>
@@ -49,6 +49,7 @@
 <a href="https://www.reddit.com/r/punktcreative/" class="social_media"><i class="fa fa-reddit-square fa-2x"></i></a>
 <a href="https://github.com/punktcreative" class="social_media"><i class="fa fa-github-square fa-2x"></i></a>
 <a href="mailto:punktcreative@gmail.com" class="social_media"><i class="fa fa-envelope-square fa-2x"></i></a>
+<p> Optimized for <i class="fa fa-chrome"></i></p>
 </footer>
 </body>
 </html>

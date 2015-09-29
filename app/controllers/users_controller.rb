@@ -11,6 +11,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def my_profile
+    respond_to do |format|
+      if @current_user
+        format.html{redirect_to url_for(:controller => :users, :action => :show, :id => @current_user.id)}
+      else
+        flash[:error] = "You must be logged in to have your own profile!"
+        format.html{redirect_to url_for(:controller => :static, :action => :home)}
+      end
+    end
+  end
+
   # POST /users
   # POST /users.json
   def create

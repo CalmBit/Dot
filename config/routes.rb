@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
        get 'user/logout' => "users#logout"
+       get 'me' => "users#my_profile"
        get 'user/validate' => 'users#validate'
 	get 'user/register' => 'users#new'
        get 'user/login' => 'users#login'

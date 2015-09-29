@@ -1,12 +1,20 @@
 <p id="notice"><%= notice %></p>
-<div style="text-align:center;">
+<%if (@current_user and @current_user.id == session[:current_user_id]) and not (params[:view] == "public")%>
+	<div style="border-right:2px solid black;padding-right:2.5%;margin-top:1.5%;">
+		<ul style="list-style:none;">
+			<a href="/me" style="text-decoration:none;"><li style="font-weight:bold;font-size:16px;padding-bottom:10px;">Profile View</li></a>
+			<a href="#" style="text-decoration:none;"><li style="padding-bottom:10px;">Edit Profile</li></a>
+		</ul>
+	</div>
+<%end%>
+<div style="text-align:center;margin-left:25%;margin-right:28.5%;">
 	<p class="username-larger"><%=@user.username %></p>
 	<%=raw(@user.get_user_title)%>
 	<div class="profile-card">
 		<div>
 			<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
 		</div>
-		<div  classstyle="display:flex; flex-direction:column;">
+		<div  class="user_box">
 			<p>
 		  		<strong>Email:</strong>
 		  		<%= @user.email %>

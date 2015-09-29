@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920195952) do
+ActiveRecord::Schema.define(version: 20150921205228) do
 
   create_table "text_posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20150920195952) do
     t.boolean  "validated"
     t.string   "validation_code"
     t.integer  "userlevel"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "show_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
