@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	end
 
 	def get_user_title
-		return (self.userlevel == 0 ? "<p class=\"usertitle user\"><i class=\"fa fa-user\"></i> User</p>" : (self.userlevel == 1 ? "<p class=\"usertitle premium\"><i class=\"fa fa-user-plus\"></i> Premium</p>"   : (self.userlevel == 2 ? "<p class=\"usertitle moderator\">i class=\"fa fa-shield\"></i> <Moderator</p>"  : (self.userlevel == 3 ? "<p class=\"usertitle admin\"><i class=\"fa fa-cog\"></i> Admin</p>"  : "<p class=\"usertitle hacker\">i class=\"fa fa-exclamation-triangle\"></i> Hacker</p>"  ))))
+		return (self.userlevel == 0 ? "<p class=\"usertitle user\"><i class=\"fa fa-user\"></i> User</p>" : (self.userlevel == 1 ? "<p class=\"usertitle premium\"><i class=\"fa fa-trophy\"></i> Premium</p>"   : (self.userlevel == 2 ? "<p class=\"usertitle moderator\"><i class=\"fa fa-shield\"></i> Moderator</p>"  : (self.userlevel == 3 ? "<p class=\"usertitle admin\"><i class=\"fa fa-cog\"></i> Admin</p>"  : "<p class=\"usertitle hacker\"><i class=\"fa fa-exclamation-triangle\"></i> Hacker</p>"  ))))
 	end
 
 	def get_gravatar

@@ -57,6 +57,9 @@ GEM
       addressable
     daemons (1.2.2)
     debug_inspector (0.0.2)
+    dogapi (1.20.0)
+      multi_json
+    dogstatsd-ruby (1.5.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.6.0)
@@ -175,6 +178,8 @@ DEPENDENCIES
   actionmailer_inline_css
   byebug
   coffee-rails (~> 4.1.0)
+  dogapi
+  dogstatsd-ruby
   feedjira
   font-awesome-rails
   forgery

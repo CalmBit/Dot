@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(username: user_params[:username], email: user_params[:email], 'birthday(1i)' => user_params['birthday(1i)'], 'birthday(2i)' => user_params['birthday(2i)'],  'birthday(3i)' => user_params['birthday(3i)'])
+    @user.userlevel = 0
     @user.construct_password(user_params[:password])
     @user.construct_validation
     respond_to do |format|
