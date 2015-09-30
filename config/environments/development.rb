@@ -48,3 +48,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+Turnout.configure do |config|
+  config.app_root = '.'
+  config.named_maintenance_file_paths = {default: config.app_root.join('tmp', 'maintenance.yml').to_s}
+  config.default_maintenance_page = Turnout::MaintenancePage::HTML
+  config.default_reason = "A code monkey is working on the site.\nCheck back soon!"
+  config.default_response_code = 503
+  config.default_retry_after = 7200
+end

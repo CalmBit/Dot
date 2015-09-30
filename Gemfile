@@ -29,6 +29,8 @@ gem 'dogstatsd-ruby'
 
 gem 'dogapi'
 
+gem 'turnout'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
