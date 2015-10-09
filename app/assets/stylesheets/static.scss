@@ -5,8 +5,9 @@
 body
 {
 	height:100%;
-	background-color: #FFF0C8;
+	background-color: #FFF7E0;
 	font-family: 'Josefin Sans', sans-serif;
+	margin:0 0 0 0;
 }
 
 main
@@ -49,21 +50,29 @@ main
 
 .news_item
 {
-	background-color:#FFF;
+	background-color:#9CD09E;
 	width:50%;
-	padding: 5px 5px 5px 5px;
+	padding: 20px 20px 20px 20px;
 	margin-bottom: 10px;
 	margin-top:10px;
 	margin-right:10px;
 	margin-left:10px;
 	border-radius:10px;
+	box-shadow:0px 0px 40px #85B187 inset;
 	.news_title
 	{
 		font-size:36px;
 	}
-	.news_snippet p
+
+	.news_snippet
 	{
-		font-size:16px;
+		p
+		{
+			padding-top:10px;
+			border-top:3px #85B187 solid;
+			font-size:14px;
+			font-family: 'Lora', serif;
+		}
 	}
 }
 .logo
@@ -135,14 +144,14 @@ footer
 a.social_media
 {
 	color:#000;
-	background-color:#FFF0C8;
+	background-color:#FFF7E0;
 	transition: 0.25s;
 }
 
 a.social_media:hover
 {
 	color:#555;
-	background-color:#FFF0C8;
+	background-color:#FFF7E0;
 	transition: 0.25s;
 }
 
@@ -282,16 +291,54 @@ a.social_media:hover
 	}
 }
 
+.login_button
+{
+	width:200px;
+	height:40px;
+	border: none;
+	box-shadow: 0px 2px 8px #222;
+	border-radius:10px;
+	font-weight:bold;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size:20px;
+	transition:0.05s linear;
+	background-color:#FFF;
+}
+
+.login_button:active
+{
+	box-shadow: 0px 2px 16px #395A39;
+	background-color:#A1FBA1;	
+	transition:0.05s linear;
+}
+
+.login_button:hover
+{
+	box-shadow: 0px 2px 16px #222;
+}
+
+#username
+{
+	width:194px;
+}
+
+#login_password
+{
+	width:194px;
+}
+
 nav
 {
 	background-color:#483324;
-	width:80%;
+	width:100%;
 	height:5%;
 	padding-top:0.75%;
 	padding-bottom:0.75%;
+	border-bottom: 2px solid #483D36;
+	box-shadow:0px 0px 20px black;
 	margin-left:auto;
 	margin-right:auto;
-	border-radius:10px;
+	/*border-radius:10px;*/
 	ul
 	{
 		color:#fff;
@@ -320,6 +367,14 @@ nav
 			{
 				background-color:#B07F5B;
 				transition:0.25s;
+			}
+			.brand
+			{
+				font-size:24px;
+				margin-right:10px;
+				font-family: 'Pacifico', cursive;
+				padding-right:10px;
+				padding-left:10px;
 			}
 		}
 	}

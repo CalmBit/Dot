@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-<%if (@current_user and @current_user.id == session[:current_user_id]) and not (params[:view] == "public")%>
-	<div style="border-right:2px solid black;padding-right:2.5%;margin-top:1.5%;">
+<%#Totally didnt comment this out or anything whoops%>
+<%if (@current_user and @user.id == session[:current_user_id]) and not (params[:view] == "public") and false%>
+	<div style="border:2px solid #000;padding-right:2.5%;margin-top:1.5%;">
 		<ul style="list-style:none;">
 			<a href="/me" style="text-decoration:none;"><li style="font-weight:bold;font-size:16px;padding-bottom:10px;">Profile View</li></a>
 			<a href="#" style="text-decoration:none;"><li style="padding-bottom:10px;">Edit Profile</li></a>
@@ -9,11 +10,11 @@
 <%end%>
 <div style="text-align:center;margin-left:25%;margin-right:28.5%;">
 	<p class="username-larger"><%=@user.username %></p>
-	<%=raw(@user.get_user_title)%>
 	<div class="profile-card">
 		<div>
 			<img class="avatar" src="<%= @user.get_gravatar %>" alt="Avatar">
 		</div>
+		<%=raw(@user.get_user_title)%>
 		<div  class="user_box">
 			<p>
 		  		<strong>Email:</strong>

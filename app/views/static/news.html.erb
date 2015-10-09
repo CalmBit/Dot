@@ -1,5 +1,5 @@
 <div style="text-align:center; ">
-<p class="logo_sub">News</p>
+<p class="logo_sub">Site News</p>
 <div class="news_container">
 <%@feed.entries.each do |newsItem|%>
 	<%= render partial: 'shared/news_item.html.erb', locals: {newsItem: newsItem}%>

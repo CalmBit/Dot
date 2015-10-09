@@ -1,9 +1,9 @@
 <div class="news_item">
 <div>
 <% if newsItem.author == "calmbit-dev" %>
-<img src="http://www.gravatar.com/avatar/b5458636d744a5b3571aa9c0a21d31e6?s=500" width="128" height="128" style="margin: 5px 15% 5px -35%;;display:inline;border-radius:64px;">
+<img src="http://www.gravatar.com/avatar/b5458636d744a5b3571aa9c0a21d31e6?s=500" width="128" height="128" style="border-radius:64px;margin-bottom:20px;"><br>
 <%end%>
-<p class="news_title" style="font-weight:bold;display:inline;"><%=newsItem.title%></p>
+<p class="news_title" style="font-weight:bold;display:inline;border-bottom:3px #85B187 solid;border-top:3px #85B187 solid;"><%=newsItem.title%></p>
 </span>
 <p class="news_data"><%=newsItem.published.strftime('%a, %Y-%m-%d @ %H:%M:%S UTC')%></p>
 <span style="text-align:left;" class="news_snippet"><%=newsItem.summary.html_safe%></span>
