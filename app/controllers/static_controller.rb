@@ -8,4 +8,6 @@ class StaticController < ApplicationController
 	end
 	def explore
 	end
+	def ping
+	end
 end
