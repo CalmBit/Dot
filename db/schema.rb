@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921205228) do
+ActiveRecord::Schema.define(version: 20151018162605) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "announcements", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "severity"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "text_posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -38,9 +50,10 @@ ActiveRecord::Schema.define(version: 20150921205228) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "show_name"
+    t.datetime "annquash"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

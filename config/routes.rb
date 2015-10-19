@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :announcements
   resource :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
        get 'post/create' => 'posts#create_post'
        get '/explore' => 'static#explore'
        get '/ping' => 'static#ping'
+       match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

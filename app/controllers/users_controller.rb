@@ -1,9 +1,19 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotUnique, :with => :handle_nonunique
 
   # GET /users/1
   # GET /users/1.json
   def show
+        respond_to do |format|
+            if @user.show_name
+              format.html
+              format.json{render :json => @user, :except => [:passhash, :passsalt, :validation_code]}
+            else
+              format.html
+              format.json{render :json => @user, :except => [:passhash, :passsalt, :validation_code, :first_name, :last_name]}
+            end
+        end
   end
 
   # GET /users/new
@@ -132,4 +142,17 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :birthday, :password)   
     end
+
+private
+
+  def handle_nonunique
+    respond_to do |format|
+        flash[:error] = "Username or email already exist in the system!"
+        format.html {redirect_to url_for(:controller => :users, :action => :register)}
+    end
+  end
+
+  def handle_missingaction
+    render 'fourohfour'
+  end
 end
