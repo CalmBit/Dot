@@ -1,9 +1,29 @@
 #!/bin/bash
 
-if [ "$1" == "--production" ]; then
-    echo "Starting Dot Server (PRODUCTION MODE)"
-    rails s --binding=104.236.224.216 -p 80 -e production
-else
-    echo "Starting Dot Server (DEVELOPMENT MODE)"
+
+run_server_development() {
+    printf "\x1b[36mStarting Dot Server \x1b[1;31m(DEVELOPMENT MODE)\x1b[0;37m\n"
     rails s --binding=104.236.224.216 -p 80
+}
+
+run_server_production() {
+    printf "\x1b[36mStarting Dot Server \x1b[1;32m(PRODUCTION MODE)\x1b[0;37m\n"
+    rails s --binding=104.236.224.216 -p 80 -e production
+}
+
+run_git_maint() {
+    echo "Performing basic git maintenance..."
+    git pull origin master
+    echo "Running bundler..."
+    bundle install
+}
+
+if [ "$1" == "--pull" ] || [ "$2" == "--pull" ]; then
+    run_git_maint
+fi
+
+if [ "$1" == "--production" ] || [ "$2" == "--production" ]; then
+    run_server_production
+else
+    run_server_development
 fi
