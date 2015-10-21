@@ -1,5 +1,39 @@
-<h1>New Announcement</h1>
+<div>
+<p class="logo_sub">Create an Announcement</p>
+<%= form_for(@announcement) do |f| %>
+  <% if @announcement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@announcement.errors.count, "error") %> prohibited this announcement from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @announcement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', announcements_path %>
+  <div class="field">
+    <%= f.label :message %>:<br>
+    <%= f.text_area :message, :style => "width:100%; height:180px;resize:none;"%>
+  </div>
+  <div class="field">
+    <%= f.label :severity %>:<br>
+    <%= f.radio_button :severity, 0 %> <i class="fa fa-bullhorn fa-2x"></i><br>
+    <%= f.radio_button :severity, 1 %> <i class="fa fa-warning fa-2x"></i><br>
+    <%= f.radio_button :severity, 2 %> <i class="fa fa-times-circle fa-2x"></i><br>
+  </div>
+  <p style="color:#ff5555;font-weight:bold;"> NOTE: All Times Are In UTC! </p>
+  <div class="field">
+    <%= f.label :starts_at %>:<br>
+    <%= f.datetime_select :starts_at %>
+  </div>
+  <div class="field">
+    <%= f.label :ends_at %>:<br>
+    <%= f.datetime_select :ends_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

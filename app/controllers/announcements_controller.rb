@@ -14,7 +14,14 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/new
   def new
-    @announcement = Announcement.new
+    respond_to do |format|
+      if  @current_user and @current_user.userlevel == 3
+        @announcement = Announcement.new
+        format.html
+      else
+        render :controller => :application, :action => :raise_not_found!, :status => :not_found
+      end
+   end
   end
 
   # GET /announcements/1/edit

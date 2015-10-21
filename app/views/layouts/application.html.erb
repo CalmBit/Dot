@@ -20,6 +20,7 @@
                       <li><a href="/user/login"><i class="fa fa-sign-in fa-fw"></i> Log In</a></li>
       <%else%>
                       <li><a href="/me"><i class="fa fa-user fa-fw"></i> <%=@current_user.username%></a></li>
+                      <% if @current_user.userlevel == 3 %> <li><a href="/admin_panel"><i class="fa fa-plug fa-fw"></i> Admin</a></li> <%end%>
                       <li><a href="/explore"><i class="fa fa-globe fa-fw"></i> Explore</a></li>
                       <li><a href="/news"><i class="fa fa-newspaper-o fa-fw"></i> News</a></li>
                       <li><a href="/post/create"><i class = "fa fa-plus-circle fa-fw"></i> New Post</a></li>

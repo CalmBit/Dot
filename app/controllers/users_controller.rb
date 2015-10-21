@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  rescue_from ActiveRecord::RecordNotUnique, :with => :handle_nonunique
 
   # GET /users/1
   # GET /users/1.json
@@ -28,6 +27,16 @@ class UsersController < ApplicationController
       else
         flash[:error] = "You must be logged in to have your own profile!"
         format.html{redirect_to url_for(:controller => :static, :action => :home)}
+      end
+    end
+  end
+
+  def admin_panel
+    respond_to do |format|
+      if @current_user and @current_user.userlevel == 3
+        format.html
+      else
+        render :controller => :application, :action => :raise_not_found!, :status => :not_found
       end
     end
   end
@@ -142,8 +151,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :email, :birthday, :password)   
     end
-
-private
 
   def handle_nonunique
     respond_to do |format|

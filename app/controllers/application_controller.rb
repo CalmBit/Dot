@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def handle_missingaction
-      render 'fourohfour'
+      render :status => :not_found, :action => 'fourohfour'
     end
 
 end

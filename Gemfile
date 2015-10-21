@@ -27,9 +27,9 @@ gem 'forgery'
 
 gem 'newrelic_rpm'
 
-gem 'dogapi'
-
 gem 'turnout'
+
+gem "health_check"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

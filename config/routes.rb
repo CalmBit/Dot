@@ -22,6 +22,8 @@ Rails.application.routes.draw do
        get 'post/create' => 'posts#create_post'
        get '/explore' => 'static#explore'
        get '/ping' => 'static#ping'
+       get '/admin_panel' => 'users#admin_panel'
+       health_check_routes
        match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
