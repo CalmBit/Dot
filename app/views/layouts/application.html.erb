@@ -28,6 +28,11 @@
       <%end%>
 		</ul>
 	</nav>
+        <div style="margin-top:10px;">
+              <% @announcements.each do |announcement|%>
+                            <%= render partial: 'shared/announcement.html.erb', locals: {announcement: announcement}%>
+              <% end %>
+        </div>
         <% if flash[:error] %>
           <div class="alert alert-error"><i class="fa fa-times-circle"></i> <%=flash[:error]%></div>
         <%end%>

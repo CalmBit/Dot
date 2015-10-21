@@ -1,5 +1,6 @@
 class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
+  before_action :check_credentials
 
   # GET /announcements
   # GET /announcements.json
@@ -14,14 +15,7 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/new
   def new
-    respond_to do |format|
-      if  @current_user and @current_user.userlevel == 3
-        @announcement = Announcement.new
-        format.html
-      else
-        render :controller => :application, :action => :raise_not_found!, :status => :not_found
-      end
-   end
+    @announcement = Announcement.new
   end
 
   # GET /announcements/1/edit
@@ -77,5 +71,11 @@ class AnnouncementsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def announcement_params
       params.require(:announcement).permit(:message, :severity, :starts_at, :ends_at)
+    end
+
+    def check_credentials
+       if not @current_user or @current_user.userlevel != 3
+          render :controller => :application, :action => :raise_not_found!, :status => :not_found
+      end
     end
 end

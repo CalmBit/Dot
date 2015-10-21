@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authenticate
+  before_filter :announcement_check
   rescue_from ActiveRecord::RecordNotFound, :with => :handle_missingaction
   rescue_from ActionView::MissingTemplate, :with => :handle_missingaction
   rescue_from ActionController::RoutingError, :with => :handle_missingaction
@@ -14,6 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+    def announcement_check
+        @announcements = Announcement.where("starts_at <= :time AND ends_at >= :time", {time: DateTime.now})
+    end
+
     def authenticate
     	unless session[:current_user_id]
     	else
