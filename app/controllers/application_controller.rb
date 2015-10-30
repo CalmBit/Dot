@@ -14,10 +14,27 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new("No route matches #{params[:unmatched_route]}")
   end
 
+  def annquash!
+    if not request.referer
+      raise_not_found!
+    else
+      cookies[:annquash] = DateTime.now
+       flash[:succcess] = "Cleared announcements!"
+      redirect_to request.referer
+    end
+  end
+
   private
 
     def announcement_check
-        @announcements = Announcement.where("starts_at <= :time AND ends_at >= :time", {time: DateTime.now})
+        if not cookies[:annquash] 
+          @announcements = Announcement.where("starts_at <= :time AND ends_at >= :time", {time: DateTime.now})
+        else
+          @announcements = Announcement.where("starts_at <= :time AND ends_at >= :time AND starts_at >= :annquash", {time: DateTime.now, annquash: Time.parse(cookies[:annquash]).getutc})
+        end
+        if @announcements.size == 0
+          @announcements = nil
+        end
     end
 
     def authenticate

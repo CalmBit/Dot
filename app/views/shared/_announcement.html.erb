@@ -1,8 +1,9 @@
- <% if announcement.severity == 2 %>
-          <div class="alert alert-error" style="margin-top:10px;"><i class="fa fa-times-circle"></i> 
-<% elsif announcement.severity == 1 %>
-          <div class="alert alert-warning" style="margin-top:10px;"><i class="fa fa-warning"></i>
-<% elsif announcement.severity == 0 %>
-         <div class="alert alert-announcement" style="margin-top:10px;"><i class="fa fa-bullhorn"></i>
-<%end%>
-<%=announcement.message%> </div>
+  <% if announcement.severity == 2 %>
+            <div class="alert alert-error" style="margin-top:10px;width:80%;"><i class="fa fa-times-circle"></i> 
+  <% elsif announcement.severity == 1 %>
+            <div class="alert alert-warning" style="margin-top:10px;width:80%;"><i class="fa fa-warning"></i>
+  <% elsif announcement.severity == 0 %>
+           <div class="alert alert-announcement" style="margin-top:10px;width:80%;"><i class="fa fa-bullhorn"></i>
+  <%end%>
+  <%=announcement.message%>
+  </div>
