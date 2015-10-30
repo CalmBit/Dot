@@ -1,6 +1,8 @@
 require 'digest'
 class User < ActiveRecord::Base
 	 has_many :text_posts
+	validates_uniqueness_of :username, case_sensitive: false
+  	validates_uniqueness_of :email, case_sensitive: false
 
 	def construct_password(pass)
 		self.passsalt = ""

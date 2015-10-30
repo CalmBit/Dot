@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  force_ssl if :ssl_configured?
+  force_ssl unless Rails.env.development?
   before_action :authenticate
   before_filter :announcement_check
   rescue_from ActiveRecord::RecordNotFound, :with => :handle_missingaction
@@ -26,10 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-    def ssl_configured?
-        !Rails.env.development?
-    end
 
     def announcement_check
         if not cookies[:annquash] 
