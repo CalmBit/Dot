@@ -31,6 +31,8 @@ gem 'turnout'
 
 gem "health_check"
 
+gem 'rack-ssl'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
