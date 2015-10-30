@@ -23,6 +23,7 @@ Rails.application.routes.draw do
        get '/explore' => 'static#explore'
        get '/ping' => 'static#ping'
        get '/admin_panel' => 'users#admin_panel'
+       get '/annquash' => 'application#annquash!'
        health_check_routes
        match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
 

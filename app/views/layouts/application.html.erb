@@ -28,11 +28,15 @@
       <%end%>
 		</ul>
 	</nav>
-        <div style="margin-top:10px;">
-              <% @announcements.each do |announcement|%>
-                            <%= render partial: 'shared/announcement.html.erb', locals: {announcement: announcement}%>
-              <% end %>
-        </div>
+        <%if @announcements %>
+          <div style="margin-top:10px;width:80%;margin-right:auto;margin-left:auto;text-align:center;padding-top:10px;padding-bottom:10px;">
+                <% @announcements.each do |announcement|%>
+                              <%= render partial: 'shared/announcement.html.erb', locals: {announcement: announcement}%>
+                <% end %>
+                <hr>
+                <%=link_to("Clear Announcements", :controller => :application, :action => :annquash!)%>
+          </div>
+        <%end%>
         <% if flash[:error] %>
           <div class="alert alert-error"><i class="fa fa-times-circle"></i> <%=flash[:error]%></div>
         <%end%>
