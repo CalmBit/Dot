@@ -22,7 +22,9 @@ module Dot
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
+    
+    secrets_file = "/etc/dot/local_env.yml"
+    SECRET = File.exists?(secrets_file) ? YAML.load_file(secrets_file) : {"RAILS_DB_PWD" => 'test'}
     config.force_ssl = false
   end
 end

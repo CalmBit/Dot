@@ -19,3 +19,5 @@
 #Ignore Gemfiles (bad practice but eh)
 Gemfile
 Gemfile.lock
+
+/config/local_env.yml

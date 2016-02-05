@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing U2 F Registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @u2_f_registrations.each do |u2_f_registration| %>
+      <tr>
+        <td><%= link_to 'Show', u2_f_registration %></td>
+        <td><%= link_to 'Edit', edit_u2_f_registration_path(u2_f_registration) %></td>
+        <td><%= link_to 'Destroy', u2_f_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New U2 f registration', new_u2_f_registration_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match "*path" => redirect("https://dot.calmbit.com/%{path}"), :constraints => { :protocol => "http://" }, :via => [:get, :post]
+  resources :u2_f_registrations
   resources :announcements
   resource :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,8 +26,10 @@ Rails.application.routes.draw do
        get '/ping' => 'static#ping'
        get '/admin_panel' => 'users#admin_panel'
        get '/annquash' => 'application#annquash!'
+       get '/u2f_auth' => 'u2_f_authentications#new'
+       post '/u2f_auth' => 'u2_f_authentications#create'
        health_check_routes
-       match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
+      # match '*unmatched_route', :to => 'application#raise_not_found!', :via => :all
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

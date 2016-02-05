@@ -33,6 +33,8 @@ gem "health_check"
 
 gem 'rack-ssl'
 
+gem 'u2f'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

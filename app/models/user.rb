@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	end
 
 	def get_gravatar
-		return "http://www.gravatar.com/avatar/" << Digest::MD5.hexdigest(self.email.downcase)  << "?s=256&default=retro"
+		return "https://www.gravatar.com/avatar/" << Digest::MD5.hexdigest(self.email.downcase)  << "?s=256&default=retro"
 	end
 end
 	

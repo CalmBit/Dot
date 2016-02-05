@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018162605) do
+ActiveRecord::Schema.define(version: 20160205000116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20151018162605) do
     t.string   "tags"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "u2_f_registrations", force: :cascade do |t|
+    t.string   "key_handle"
+    t.string   "public_key"
+    t.text     "certificate"
+    t.integer  "counter"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "two_part"
   end
 
   create_table "users", force: :cascade do |t|

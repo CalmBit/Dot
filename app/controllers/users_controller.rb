@@ -135,8 +135,13 @@ class UsersController < ApplicationController
         flash[:error] = "Username or password incorrect!"
         format.html {redirect_to url_for(:controler => :users, :action => :login)}
       else
-        session[:current_user_id] = @user.id
-        format.html {redirect_to url_for(:controller => :static, :action => :home)}
+	if U2FRegistration.where(:user_id => @user.id, :two_part => true).count != 0
+		session[:temporary_user_id] = @user.id
+		format.html {redirect_to url_for(:controller => :u2_f_authentications, :action => :new)}
+	else
+        	session[:current_user_id] = @user.id
+        	format.html {redirect_to url_for(:controller => :static, :action => :home)}
+	end
       end
     end
   end
