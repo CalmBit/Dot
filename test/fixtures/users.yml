@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  email: MyString
-  passhash: MyString
-  bio: MyText
+  username: dallas
+  email: dallas@calmbit.com
+  passhash: 154d906888db73e5c1cb4dc3872196038b787d480e2e6f1a1416989770e7d2cb
+  bio: Dallas bio
   passsalt: MyString
-  birthday: 2015-09-12
+  birthday: 1998-02-24
 
 two:
-  username: MyString
-  email: MyString
-  passhash: MyString
-  bio: MyText
+  username: austin
+  email: austin@calmbit.com
+  passhash: 154d906888db73e5c1cb4dc3872196038b787d480e2e6f1a1416989770e7d2cb
+  bio: Austin bio
   passsalt: MyString
-  birthday: 2015-09-12
+  birthday: 2002-01-24

@@ -1,9 +1,13 @@
 require 'digest'
 class User < ActiveRecord::Base
-	 has_many :text_posts
+	has_many :text_posts
 	validates_uniqueness_of :username, case_sensitive: false
   	validates_uniqueness_of :email, case_sensitive: false
-
+        validates :username, presence: true
+        validates :email, presence: true
+        validates :passsalt, presence: true
+        validates :passhash, presence: true
+        
 	def construct_password(pass)
 		self.passsalt = ""
 		20.times{self.passsalt << 65+rand(25)}
@@ -13,6 +17,12 @@ class User < ActiveRecord::Base
 	def  password_valid?(pass)
 		return self.passhash == Digest::SHA256.hexdigest(pass+self.passsalt)
 	end
+
+        def of_age?
+          now = Time.now.utc.to_date
+          yearsOfAge = now.year - self.birthday.year - ((now.month > self.birthday.month || (now.month == self.birthday.month && now.day >= self.birthday.day)) ? 0 : 1)
+          return yearsOfAge >= 18
+        end
 
 	def construct_validation
 		self.validated = false;
