@@ -5,18 +5,7 @@ class User < ActiveRecord::Base
   	validates_uniqueness_of :email, case_sensitive: false
         validates :username, presence: true
         validates :email, presence: true
-        validates :passsalt, presence: true
-        validates :passhash, presence: true
-        
-	def construct_password(pass)
-		self.passsalt = ""
-		20.times{self.passsalt << 65+rand(25)}
-		self.passhash = Digest::SHA256.hexdigest(pass+self.passsalt)
-	end
-
-	def  password_valid?(pass)
-		return self.passhash == Digest::SHA256.hexdigest(pass+self.passsalt)
-	end
+	has_secure_password
 
         def of_age?
           now = Time.now.utc.to_date

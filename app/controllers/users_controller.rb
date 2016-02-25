@@ -44,9 +44,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(username: user_params[:username], email: user_params[:email], 'birthday(1i)' => user_params['birthday(1i)'], 'birthday(2i)' => user_params['birthday(2i)'],  'birthday(3i)' => user_params['birthday(3i)'])
+    @user = User.new(username: user_params[:username], email: user_params[:email], 'birthday(1i)' => user_params['birthday(1i)'], 'birthday(2i)' => user_params['birthday(2i)'],  'birthday(3i)' => user_params['birthday(3i)'], password: user_params[:password])
     @user.userlevel = 0
-    @user.construct_password(user_params[:password])
     @user.construct_validation
     respond_to do |format|
       if @user.save
@@ -131,7 +130,7 @@ class UsersController < ApplicationController
   def login_attempt
     @user = User.find_by(username: params[:username])
     respond_to do |format|
-      if @user == nil or not @user.password_valid?(params[:login_password])
+      if @user == nil or not @user.authenticate(params[:login_password])
         flash[:error] = "Username or password incorrect!"
         format.html {redirect_to url_for(:controler => :users, :action => :login)}
       else
