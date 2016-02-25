@@ -5,11 +5,10 @@ one:
   email: dallas@calmbit.com
   bio: Dallas bio
   birthday: 1998-02-24
-
+  password_digest: $2a$10$ggcV9HqJ6D1F9Vx6tzXo/.Xi4gaV2HVIUeXkO7XFJG7HWuakWC2ki
 two:
   username: austin
   email: austin@calmbit.com
-  passhash: 154d906888db73e5c1cb4dc3872196038b787d480e2e6f1a1416989770e7d2cb
   bio: Austin bio
-  passsalt: MyString
   birthday: 2002-01-24
+  password_digest: $2a$10$ggcV9HqJ6D1F9Vx6tzXo/.Xi4gaV2HVIUeXkO7XFJG7HWuakWC2ki

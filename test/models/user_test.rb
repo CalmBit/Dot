@@ -4,14 +4,17 @@ class UserTest < ActiveSupport::TestCase
   test "user validation" do
 	user = User.new
 	assert_not user.save, "User saved without information"
-        usertwo = User.new(username: "johndoe", email: "johndoe@gmail.com", 'birthday(1i)' => "1997", 'birthday(2i)' => "8",  'birthday(3i)' => "17")
+        usertwo = User.new(username: "johndoe", email: "johndoe@gmail.com", 'birthday(1i)' => "1997", 'birthday(2i)' => "8",  'birthday(3i)' => "17", password: "SecurePassword")
         usertwo.userlevel = 0
-        usertwo.construct_password("fuckingpassword")
         assert usertwo.save, "User didn't save with information"
   end
 
   test "user password" do
-    assert users(:one).password_valid?("ThisIsAStrongPasswordIPromise"), "Password validation not working correctly, or fixture hashpass/salt changed."
+    assert users(:one).authenticate("ThisIsASecurePassword"), "Password validation not working correctly, or fixture hashpass/salt changed."
+    assert_not users(:one).authenticate("ThisIsNotASecurePassword"), "Password validation authenticating all passwords, or fixture hashpass/salt changed."
+    user = User.new(username: "johndoe", email: "johndoe@gmail.com", 'birthday(1i)' => "1997", 'birthday(2i)' => "8",  'birthday(3i)' => "17", password: "SecurePassword")
+    assert user.authenticate("SecurePassword"), "Dynamic generation of passwords not working"
+    assert_not user.authenticate("NotASecurePassword"), "Dynamic genned auth isn't working!"
   end
 
   test "birthdate validation" do
